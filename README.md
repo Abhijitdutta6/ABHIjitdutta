@@ -1,0 +1,1 @@
+Welcome to my official portfolio repository. I am a creative professional specializing in high-fidelity 3D rendering and strategic visual communication. This repository hosts the live version of my portfolio, showcasing my journey in blending technical hardware power with artistic design.
