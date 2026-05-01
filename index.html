@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhijit Dutta — Graphic Designer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#c8102e;--green:#39ff14;--dark:#0a0a0a;--darker:#050505;--white:#f5f5f0;--gray:#888;--card:#111}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--darker);color:var(--white);font-family:'Outfit',sans-serif;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--green);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform .1s;mix-blend-mode:difference}
+.ring{width:38px;height:38px;border:1.5px solid var(--green);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:all .15s;mix-blend-mode:difference}
+body::before{content:'';position:fixed;inset:0;opacity:.4;pointer-events:none;z-index:9997;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E")}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:18px 56px;background:rgba(5,5,5,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05)}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px}.logo span{color:var(--red)}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--green);transition:width .3s}
+.nav-links a:hover{color:var(--white)}.nav-links a:hover::after{width:100%}
+.hire-nav{background:var(--red);color:#fff;border:none;padding:11px 26px;font-family:'Outfit',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:none;transition:all .3s;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%)}
+.hire-nav:hover{background:#ff1f3d;transform:translateY(-2px)}
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 56px 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 85% 45%,rgba(200,16,46,.13) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 15% 75%,rgba(57,255,20,.06) 0%,transparent 60%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:60px 60px}
+.hero-content{position:relative;z-index:2;max-width:680px}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:24px;font-weight:600}
+.hero-tag::before{content:'';width:36px;height:1px;background:var(--green)}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,9vw,128px);line-height:.88;letter-spacing:-2px;margin-bottom:8px}
+h1 .out{-webkit-text-stroke:1px rgba(255,255,255,.28);color:transparent}
+.sub{font-family:'Dancing Script',cursive;font-size:30px;color:var(--green);margin-bottom:26px;margin-left:4px}
+.desc{font-size:15px;line-height:1.85;color:var(--gray);max-width:470px;margin-bottom:44px;font-weight:300}
+.desc strong{color:var(--white);font-weight:600}
+.ctas{display:flex;gap:20px;align-items:center}
+.btn-primary{background:var(--red);color:#fff;border:none;padding:15px 42px;font-family:'Outfit',sans-serif;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;cursor:none;text-decoration:none;display:inline-block;clip-path:polygon(11px 0%,100% 0%,calc(100% - 11px) 100%,0% 100%);animation:pr 2s infinite;transition:all .3s}
+@keyframes pr{0%,100%{box-shadow:0 0 0 0 rgba(200,16,46,.4)}50%{box-shadow:0 0 0 14px rgba(200,16,46,0)}}
+.btn-primary:hover{background:#ff1f3d;transform:translateY(-2px)}
+.btn-sec{color:var(--white);text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;display:flex;align-items:center;gap:10px;transition:all .3s}
+.btn-sec:hover{gap:18px;color:var(--green)}.btn-sec::after{content:'→';font-size:18px}
+.stats{position:absolute;right:56px;bottom:80px;display:flex;flex-direction:column;gap:26px;text-align:right}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:50px;color:var(--white);line-height:1}
+.sl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+.scroll-i{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gray);font-size:10px;letter-spacing:3px;text-transform:uppercase}
+.scroll-l{width:1px;height:38px;background:linear-gradient(to bottom,var(--gray),transparent);animation:sp 1.5s infinite}
+@keyframes sp{0%,100%{opacity:.3}50%{opacity:1}}
+.mq{overflow:hidden;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:13px 0;background:var(--dark)}
+.mq-t{display:flex;animation:mq 22s linear infinite;white-space:nowrap}
+.mq-t span{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:4px;color:rgba(255,255,255,.11);padding:0 34px;border-right:1px solid rgba(255,255,255,.05)}
+.mq-t span.ac{color:var(--red)}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding:110px 56px}
+.stag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:13px}
+.stit{font-family:'Bebas Neue',sans-serif;font-size:clamp(46px,6vw,88px);line-height:.93;letter-spacing:-1px;margin-bottom:52px}
+.stit .out{-webkit-text-stroke:1px rgba(255,255,255,.23);color:transparent}
+.about{background:var(--dark);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center}
+.at p{font-size:15px;line-height:1.9;color:#aaa;font-weight:300;margin-bottom:17px}
+.at p strong{color:var(--white);font-weight:600}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:34px}
+.si{padding:13px 17px;border:1px solid rgba(255,255,255,.07);font-size:13px;letter-spacing:1px;color:var(--gray);position:relative;transition:all .3s}
+.si::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--red)}
+.si:hover{border-color:rgba(200,16,46,.3);color:var(--white);background:rgba(200,16,46,.05)}
+.av{position:relative;max-width:430px}
+.bi{font-family:'Bebas Neue',sans-serif;font-size:270px;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.055);line-height:1;position:absolute;top:-15px;left:-18px;pointer-events:none}
+.acard{position:relative;z-index:1;background:var(--card);border:1px solid rgba(255,255,255,.07);padding:34px;margin-top:52px;margin-left:26px}
+.ci{display:flex;align-items:center;gap:13px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px;color:var(--gray);transition:color .3s}
+.ci:last-child{border-bottom:none}.ci:hover{color:var(--white)}
+.ci .ic{width:33px;height:33px;background:rgba(200,16,46,.14);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.wi{grid-column:span 2}
+.wi-item{position:relative;overflow:hidden;cursor:none}
+.wi-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s cubic-bezier(.25,.46,.45,.94)}
+.wi-item:hover img{transform:scale(1.07)}
+.ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.94) 0%,rgba(0,0,0,.18) 50%,transparent 100%);opacity:0;transition:opacity .38s;display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.wi-item:hover .ov,.fw:hover .ov,.cnc-card:hover .ov{opacity:1}
+.oc{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:4px;font-weight:600}
+.ot{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:1px;color:#fff}
+.fw{position:relative;overflow:hidden;cursor:none}
+.fw img{width:100%;display:block;transition:transform .5s ease}
+.fw:hover img{transform:scale(1.03)}
+.fw .ov{opacity:0}
+.cnc-card{position:relative;overflow:hidden;cursor:none}
+.cnc-card img{width:100%;display:block;transition:transform .5s ease}
+.cnc-card:hover img{transform:scale(1.04)}
+.cnc-lbl{position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:linear-gradient(transparent,rgba(0,0,0,.93));font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:#fff}
+.cnc-lbl span{color:var(--red)}
+.cs{background:var(--dark);text-align:center;padding:110px 56px;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.cs-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(57,255,20,.05) 0%,transparent 70%)}
+.scene{width:170px;height:170px;perspective:550px;margin:0 auto 44px}
+.cube{width:170px;height:170px;position:relative;transform-style:preserve-3d;animation:rc 8s infinite linear}
+@keyframes rc{from{transform:rotateY(0deg) rotateX(15deg)}to{transform:rotateY(360deg) rotateX(15deg)}}
+.face{position:absolute;width:170px;height:170px;border:1px solid rgba(57,255,20,.28);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:3px;color:rgba(57,255,20,.75);background:rgba(8,8,8,.72);backdrop-filter:blur(4px)}
+.front{transform:translateZ(85px)}.back{transform:rotateY(180deg) translateZ(85px)}.left{transform:rotateY(-90deg) translateZ(85px)}.right{transform:rotateY(90deg) translateZ(85px)}.top{transform:rotateX(90deg) translateZ(85px)}.bottom{transform:rotateX(-90deg) translateZ(85px)}
+.cs-t{font-family:'Bebas Neue',sans-serif;font-size:clamp(46px,7vw,92px);letter-spacing:-1px;color:var(--white);line-height:.93}
+.cs-t .g{color:var(--green)}
+.cs-badge{display:inline-block;margin-top:26px;padding:10px 24px;border:1px solid var(--green);color:var(--green);font-size:11px;letter-spacing:3px;text-transform:uppercase;animation:bp 2s infinite}
+@keyframes bp{0%,100%{box-shadow:0 0 0 0 rgba(57,255,20,.18)}50%{box-shadow:0 0 18px 4px rgba(57,255,20,.08)}}
+.ct{background:var(--darker);text-align:center}
+.ct-in{max-width:680px;margin:0 auto}
+.ct-d{font-size:15px;color:var(--gray);line-height:1.85;margin-bottom:42px;font-weight:300}
+.ct-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-bottom:48px}
+.ct-lnk{display:flex;align-items:center;gap:10px;color:var(--gray);text-decoration:none;font-size:13px;letter-spacing:1px;transition:all .3s;padding:12px 20px;border:1px solid rgba(255,255,255,.07)}
+.ct-lnk:hover{color:var(--white);border-color:var(--red)}
+.hire-big{display:inline-block;padding:18px 64px;background:var(--red);color:#fff;text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;transition:all .3s;clip-path:polygon(13px 0%,100% 0%,calc(100% - 13px) 100%,0% 100%);animation:pr 2s infinite}
+.hire-big:hover{background:#ff1f3d;transform:translateY(-3px)}
+footer{background:#030303;padding:24px 56px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.04)}
+.fl{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:4px}.fl span{color:var(--red)}
+.fc{font-size:11px;color:var(--gray);letter-spacing:1px}
+.fd{font-family:'Dancing Script',cursive;font-size:15px;color:var(--green)}
+.fu{opacity:0;transform:translateY(34px);transition:opacity .65s ease,transform .65s ease}
+.fu.vis{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  nav{padding:14px 18px}.nav-links{display:none}.stats{display:none}
+  .hero{padding:90px 18px 60px}section{padding:70px 18px}
+  .ag{grid-template-columns:1fr;gap:34px}.g3{grid-template-columns:1fr 1fr}.wi{grid-column:span 2}
+  footer{flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="ring" id="ring"></div>
+
+<nav>
+  <div class="logo">ABH<span>I</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#social">Social Media</a></li>
+    <li><a href="#print">Print</a></li>
+    <li><a href="#cnc">CNC</a></li>
+    <li><a href="#3d">3D</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hire-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div><div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Available for Projects</div>
+    <h1>ABHIJIT<br><span class="out">DUTTA</span></h1>
+    <div class="sub">Graphic Designer</div>
+    <p class="desc">Focused on <strong>clean, impactful visuals</strong> for brands and digital platforms. Specializing in Social Media Posts, Print Media &amp; CNC Design.</p>
+    <div class="ctas">
+      <a href="#contact" class="btn-primary">Hire Me Now</a>
+      <a href="#social" class="btn-sec">View Works</a>
+    </div>
+  </div>
+  <div class="stats">
+    <div><div class="sn">100<span style="color:var(--red)">+</span></div><div class="sl">CNC Designs</div></div>
+    <div><div class="sn">50<span style="color:var(--red)">+</span></div><div class="sl">Projects Done</div></div>
+    <div><div class="sn">3<span style="color:var(--red)">+</span></div><div class="sl">Years Exp.</div></div>
+  </div>
+  <div class="scroll-i"><div class="scroll-l"></div>Scroll</div>
+</section>
+
+<div class="mq"><div class="mq-t">
+  <span>Social Media Post</span><span class="ac">●</span><span>Print Media Design</span><span class="ac">●</span><span>CNC Grooving</span><span class="ac">●</span><span>Jali Design</span><span class="ac">●</span><span>Catalogue Design</span><span class="ac">●</span><span>Banner Design</span><span class="ac">●</span>
+  <span>Social Media Post</span><span class="ac">●</span><span>Print Media Design</span><span class="ac">●</span><span>CNC Grooving</span><span class="ac">●</span><span>Jali Design</span><span class="ac">●</span><span>Catalogue Design</span><span class="ac">●</span><span>Banner Design</span><span class="ac">●</span>
+</div></div>
+
+<section class="about" id="about">
+  <div class="ag">
+    <div class="at fu">
+      <div class="stag">About Me</div>
+      <div class="stit" style="font-size:clamp(38px,5vw,66px);margin-bottom:26px">HELLO!<br><span class="out">I'M ABHI</span></div>
+      <p>I'm a graphic designer focused on <strong>clean, impactful visuals</strong> for brands and digital platforms. I enjoy solving design problems, creating clear visual stories, and exploring new techniques.</p>
+      <p>My work reflects a mix of <strong>creativity, precision, and practical design thinking</strong> — from social media posts to complex CNC technical designs.</p>
+      <div class="sg">
+        <div class="si">Social Media Post</div><div class="si">Print Media Design</div>
+        <div class="si">CNC Grooving</div><div class="si">Jali Design</div>
+        <div class="si">Catalogue Design</div><div class="si">Banner &amp; Flex</div>
+      </div>
+    </div>
+    <div class="av fu">
+      <div class="bi">A</div>
+      <div class="acard">
+        <div class="ci"><div class="ic">📞</div>+977-9825028893</div>
+        <div class="ci"><div class="ic">✉️</div>hatsoff.abhijit1@gmail.com</div>
+        <div class="ci"><div class="ic">📍</div>Nepal</div>
+        <div class="ci"><div class="ic">🎨</div>Graphic Designer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--darker);padding:110px 56px" id="social">
+  <div class="stag">Social Media Posts</div>
+  <div class="stit">MY <span class="out">WORKS</span></div>
+  <div class="g3" style="margin-bottom:3px">
+    <div class="wi-item wi fu" style="aspect-ratio:2/1"><img src="assets/krishna-janmashtami.jpg" alt="Festival Post Krishna Janmashtami"><div class="ov"><div class="oc">Festival Post</div><div class="ot">Krishna Janmashtami</div></div></div>
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/altwood-door.jpg" alt="Product Post AltWood Door"><div class="ov"><div class="oc">Product Post</div><div class="ot">AltWood Door</div></div></div>
+  </div>
+  <div class="g3" style="margin-bottom:3px">
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/wall-panel.jpg" alt="Product Post Wall Panel"><div class="ov"><div class="oc">Product Post</div><div class="ot">Wall Panel</div></div></div>
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/new-year-2025.jpg" alt="Festival Post New Year 2025"><div class="ov"><div class="oc">Festival Post</div><div class="ot">New Year 2025</div></div></div>
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/happy-diwali.jpg" alt="Festival Post Happy Diwali"><div class="ov"><div class="oc">Festival Post</div><div class="ot">Happy Diwali</div></div></div>
+  </div>
+  <div class="g3" style="margin-bottom:3px">
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/burger-deal.jpg" alt="Food Post Burger Deal"><div class="ov"><div class="oc">Food Post</div><div class="ot">Burger Deal</div></div></div>
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/burger-special.jpg" alt="Food Post Burger Special"><div class="ov"><div class="oc">Food Post</div><div class="ot">Burger Special</div></div></div>
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/burger-dark.jpg" alt="Food Post Burger Dark Theme"><div class="ov"><div class="oc">Food Post</div><div class="ot">Burger — Dark Theme</div></div></div>
+  </div>
+  <div class="g3" style="margin-bottom:3px">
+    <div class="wi-item wi fu" style="aspect-ratio:2/1"><img src="assets/admission-open.jpg" alt="Education Post Admission Open Royal Itahari College"><div class="ov"><div class="oc">Education Post</div><div class="ot">Admission Open — Royal Itahari College</div></div></div>
+    <div class="wi-item fu" style="aspect-ratio:1"><img src="assets/happy-diwali-dark.jpg" alt="Festival Post Happy Diwali Dark"><div class="ov"><div class="oc">Festival Post</div><div class="ot">Happy Diwali — Dark</div></div></div>
+  </div>
+  <div class="fw fu" style="margin-top:3px">
+    <img src="assets/facebook-cover.jpg" alt="Facebook Cover Personal Branding">
+    <div class="ov"><div class="oc">Facebook Cover</div><div class="ot">Personal Branding — Reading Rights, Writing Dreams</div></div>
+  </div>
+</section>
+
+<section style="background:var(--dark);padding:110px 56px;border-top:1px solid rgba(255,255,255,.05)" id="print">
+  <div class="stag">Printing Media Design</div>
+  <div class="stit">PRINT <span class="out">MEDIA</span></div>
+  <div class="g2 fu" style="margin-bottom:3px">
+    <div class="fw"><img src="assets/pinaki-cafe-menu.jpg" alt="Menu Design Pinaki Cafe Menu"><div class="ov"><div class="oc">Menu Design</div><div class="ot">Pinaki Cafe Menu</div></div></div>
+    <div class="fw"><img src="assets/restaurant-menu.jpg" alt="Menu Design Restaurant Menu Card"><div class="ov"><div class="oc">Menu Design</div><div class="ot">Restaurant Menu Card</div></div></div>
+  </div>
+  <div class="fw fu" style="margin-bottom:3px"><img src="assets/altwood-banners.jpg" alt="Flex Banner AltWood Digital Print Door CNC Jali Louvers"><div class="ov"><div class="oc">Flex / Banner Design</div><div class="ot">AltWood — Digital Print Door, CNC Jali, Louvers</div></div></div>
+  <div class="fw fu" style="margin-bottom:3px"><img src="assets/pvc-board.jpg" alt="Flex Banner AltWood PVC Board Built to Last"><div class="ov"><div class="oc">Flex / Banner Design</div><div class="ot">AltWood PVC Board — Built to Last</div></div></div>
+  <div class="fw fu"><img src="assets/catalogue-design.jpg" alt="Catalogue Design AltWood Door Catalogue"><div class="ov"><div class="oc">Catalogue Design</div><div class="ot">AltWood Door Catalogue</div></div></div>
+</section>
+
+<section style="background:var(--darker);padding:110px 56px" id="cnc">
+  <div class="stag">CNC Design</div>
+  <div class="stit">CNC <span class="out">WORKS</span></div>
+  <div class="g2 fu" style="margin-bottom:3px">
+    <div class="cnc-card"><img src="assets/cnc-grooving.jpg" alt="100 CNC Grooving Door Designs"><div class="cnc-lbl ov" style="opacity:1;position:relative;background:rgba(0,0,0,.7);padding:14px 18px">100+ CNC <span>GROOVING</span> DOOR DESIGNS</div></div>
+    <div class="cnc-card"><img src="assets/cnc-jali.jpg" alt="CNC Jali Designs"><div class="cnc-lbl ov" style="opacity:1;position:relative;background:rgba(0,0,0,.7);padding:14px 18px">CNC <span>JALI</span> DESIGNS</div></div>
+  </div>
+  <div class="cnc-card fu"><img src="assets/cnc-full-collection.jpg" alt="CNC Grooving and Jali Full Collection"><div class="cnc-lbl">CNC <span>GROOVING</span> &amp; JALI — Full Collection</div></div>
+</section>
+
+<section class="cs" id="3d">
+  <div class="cs-bg"></div>
+  <div style="position:relative;z-index:2">
+    <div class="stag" style="display:inline-block">Coming Soon</div>
+    <div class="scene">
+      <div class="cube">
+        <div class="face front">3D</div><div class="face back">MODEL</div>
+        <div class="face left">COMING</div><div class="face right">SOON</div>
+        <div class="face top">ABHI</div><div class="face bottom">DESIGN</div>
+      </div>
+    </div>
+    <div class="cs-t">3D <span class="g">MODELS</span><br>COMING SOON</div>
+    <p style="font-size:13px;letter-spacing:3px;color:var(--gray);text-transform:uppercase;margin-top:16px">Next-level design experience — in development</p>
+    <div class="cs-badge">🚀 Launching Soon</div>
+    <div style="display:flex;justify-content:center;gap:56px;margin-top:52px;flex-wrap:wrap" class="fu">
+      <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--green)">3D</div><div style="font-size:11px;letter-spacing:2px;color:var(--gray);text-transform:uppercase">Product Models</div></div>
+      <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--green)">AR</div><div style="font-size:11px;letter-spacing:2px;color:var(--gray);text-transform:uppercase">Augmented Reality</div></div>
+      <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--green)">VFX</div><div style="font-size:11px;letter-spacing:2px;color:var(--gray);text-transform:uppercase">Visual Effects</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="ct" id="contact">
+  <div class="ct-in fu">
+    <div class="stag" style="display:inline-block">Get In Touch</div>
+    <div class="stit" style="font-size:clamp(48px,7vw,96px);margin-bottom:17px">LET'S WORK<br><span class="out">TOGETHER</span></div>
+    <p class="ct-d">Have a project in mind? Whether it's a social media campaign, print design, or technical CNC work — I'm ready to bring your vision to life.</p>
+    <div class="ct-links">
+      <a href="tel:+9779825028893" class="ct-lnk"><span>📞</span>+977-9825028893</a>
+      <a href="mailto:hatsoff.abhijit1@gmail.com" class="ct-lnk"><span>✉️</span>hatsoff.abhijit1@gmail.com</a>
+    </div>
+    <a href="mailto:hatsoff.abhijit1@gmail.com" class="hire-big">HIRE ME NOW</a>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">ABH<span>I</span></div>
+  <div class="fc">© 2025 Abhijit Dutta. All rights reserved.</div>
+  <div class="fd">Designed by Abhi</div>
+</footer>
+
+<script>
+const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-6)+'px';cur.style.top=(my-6)+'px'});
+(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=(rx-19)+'px';ring.style.top=(ry-19)+'px';requestAnimationFrame(anim)})();
+document.querySelectorAll('a,button,.wi-item,.cnc-card,.fw').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.2)';ring.style.transform='scale(1.6)'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.transform='scale(1)'});
+});
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.08});
+document.querySelectorAll('.fu').forEach((el,i)=>{el.style.transitionDelay=(i*.055)+'s';obs.observe(el)});
+</script>
+</body>
+</html>
